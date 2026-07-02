@@ -1,7 +1,37 @@
-*{
+* {
     padding: 0;
     margin: 0;
+    font-family: sans-serif;
+
 }
-body{
-    background-color:antiquewhite;
+
+body {
+    background-color: #FDF9F2;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    background-color: #eae3d9;
+}
+
+.navbar-links {
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+    height: 4%;
+}
+.navbar-links li{
+    margin: 5px;
+    align-content: center;
+}
+.navbar-links a {
+    text-decoration: none;
+    color: #1A2A47;
+    font-weight: 500;
+    padding: 8px 12px;
+    transition: color 0.3s ease;
+}
+.navbar-links a:hover {
+  color: #0066CC;
 }

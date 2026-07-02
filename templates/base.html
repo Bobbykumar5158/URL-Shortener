@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="static/style/base.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='style/base.css') }}">
     {% if title %}
     <title>{{title}}</title>
     {% else %}
@@ -13,7 +13,16 @@
 </head>
 
 <body>
-    
+    <nav class="navbar">
+        <ul class="navbar-links nav-link" style="width: 100%;">
+            <li>URL Shortener</li>
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+            <li><a href="{{url_for('api')}}">API Docs</a></li>
+        </ul>
+    </nav>
+    {% block content %}
+    {% endblock %}
 </body>
 
 </html>
