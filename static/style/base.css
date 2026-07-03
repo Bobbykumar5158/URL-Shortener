@@ -1,37 +1,230 @@
-* {
-    padding: 0;
-    margin: 0;
-    font-family: sans-serif;
+/* ==========================================
+   1. GLOBAL STYLES & VARIABLES
+   ========================================== */
+:root {
+  --everest-navy: #1A2A47;
+  --accent-blue: #0066CC;
+  --hero-cream: #FDF9F2;
+  --white: #FFFFFF;
+  --border-color: #EAE3D9;
+  --text-muted: #627D98;
+}
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    background-color: #FDF9F2;
+  background-color: var(--hero-cream);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: var(--everest-navy);
 }
 
+/* ==========================================
+   2. NAVBAR STYLING (Perfectly Horizontal)
+   ========================================== */
 .navbar {
-    display: flex;
-    justify-content: center;
-    background-color: #eae3d9;
+  background-color: var(--white);
+  border-bottom: 1px solid var(--border-color);
+  padding: 16px 32px;
+  width: 100%;
 }
 
 .navbar-links {
-    list-style: none;
-    display: flex;
-    justify-content: space-evenly;
-    height: 4%;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%; /* Handles the width without requiring an inline style attribute */
 }
-.navbar-links li{
-    margin: 5px;
-    align-content: center;
+
+/* Branding link item styling (URL Shortener) */
+.navbar-links li:first-child {
+  margin-right: auto; /* Shoves branding far left, pushes others right */
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--everest-navy);
 }
+
+/* Navigation menu elements spacing */
+.navbar-links li:not(:first-child) {
+  margin-left: 24px;
+}
+
 .navbar-links a {
-    text-decoration: none;
-    color: #1A2A47;
-    font-weight: 500;
-    padding: 8px 12px;
-    transition: color 0.3s ease;
+  text-decoration: none;
+  color: var(--everest-navy);
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 6px 0;
+  transition: color 0.2s ease, border-color 0.2s ease;
+  border-bottom: 2px solid transparent;
 }
+
 .navbar-links a:hover {
-  color: #0066CC;
+  color: var(--accent-blue);
+  border-bottom-color: var(--accent-blue);
+}
+
+/* ==========================================
+   3. LAYOUT CONTAINER & SHORTENER CARDS
+   ========================================== */
+.form-wrapper {
+  display: flex;
+  flex-direction: column; /* Vertically stacks multiple state cards cleanly */
+  align-items: center;
+  justify-content: center;
+  padding: 60px 24px;
+  gap: 40px; /* Space between input card and success card if both are visible */
+  min-height: calc(100vh - 70px); /* Centers card dynamically on view screen */
+}
+
+.shortener-card {
+  background-color: var(--white);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 40px;
+  width: 100%;
+  max-width: 600px;
+  box-shadow: 0 4px 20px rgba(26, 42, 71, 0.04);
+  
+  /* Flex direction layout stacks content internally */
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.form-heading {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--everest-navy);
+  text-align: center;
+  line-height: 1.2;
+}
+
+/* ==========================================
+   4. FORM INPUTS & BUTTONS
+   ========================================== */
+.shortener-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.url-input {
+  width: 100%;
+  padding: 14px 16px;
+  font-size: 1rem;
+  border: 1.5px solid var(--everest-navy);
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.url-input:focus {
+  border-color: var(--accent-blue);
+  box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.15);
+}
+
+/* Read-only variant matching the success block state */
+.url-input.readonly-input {
+  background-color: #F8FAFC;
+  border-color: var(--border-color);
+  color: #475569;
+  cursor: default;
+}
+
+/* Master styling for custom dashboard layout buttons */
+.submit-btn, .copy-btn {
+  width: 100%;
+  padding: 14px;
+  background-color: var(--everest-navy);
+  color: var(--white);
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.submit-btn:hover {
+  background-color: var(--accent-blue);
+}
+
+/* ==========================================
+   5. SUCCESS STATE BLOCK DETAILS
+   ========================================== */
+.code-badge-container {
+  background-color: #F1F5F9;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.badge-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.generated-code {
+  font-family: SFMono-Regular, Consolas, Monaco, monospace;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--accent-blue);
+  background-color: #E0F2FE;
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
+/* Align inline layout block elements on success panel link */
+.output-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: left;
+}
+
+.output-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--everest-navy);
+}
+
+.copy-box {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+}
+
+.copy-box .url-input {
+  flex: 1; /* Causes text box to fill space, shrinking the button down */
+}
+
+.copy-box .copy-btn {
+  width: auto;
+  padding: 0 24px;
+  background-color: var(--accent-blue);
+  white-space: nowrap;
+}
+
+.copy-box .copy-btn:hover {
+  background-color: var(--everest-navy);
+}
+
+/* Small contextual override button layout spacing variant */
+.code-badge-container .copy-btn {
+  width: auto;
+  padding: 6px 14px;
+  font-size: 0.85rem;
 }

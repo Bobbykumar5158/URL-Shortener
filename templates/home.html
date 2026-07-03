@@ -1,5 +1,46 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Home Page</h1>
+<div class="form-wrapper">
+    <div class="shortener-card">
+        <h1 class="form-heading">Shorten Your Long URLs</h1>
+
+        <form action="/shorten" method="POST" class="shortener-form">
+            <input type="url" name="original_url" class="url-input" placeholder="Enter your long URL here..." required>
+            <button type="submit" class="submit-btn">SHORTEN URL</button>
+        </form>
+    </div>
+    {% if code %}
+    <div class="shortener-card success-card">
+        <h1 class="form-heading">Your Short URL is Ready!</h1>
+
+        <div class="code-badge-container">
+            <div>
+                <span class="badge-label">Generated Code:</span>
+                <code class="generated-code" id="code">{{code}}</code>
+            </div>
+            <button class="copy-btn"
+                onclick="navigator.clipboard.writeText(document.getElementById('code').innerText)">
+                Copy Code
+            </button>
+        </div>
+
+        <div class="output-container">
+            <label class="output-label" for="short-url">Shortened URL</label>
+            <div class="copy-box">
+                <input type="url" 
+                    id="short-url" 
+                    class="url-input readonly-input" 
+                    value= {{short_url}}
+                    readonly>
+                <button class="copy-btn"
+                    onclick="navigator.clipboard.writeText(document.getElementById('short-url').value)">
+                    Copy URL
+                </button>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</div>
+
 {% endblock %}
