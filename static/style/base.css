@@ -38,12 +38,14 @@ body {
   flex-direction: row;
   align-items: center;
   justify-content: flex-end;
-  width: 100%; /* Handles the width without requiring an inline style attribute */
+  width: 100%;
+  /* Handles the width without requiring an inline style attribute */
 }
 
 /* Branding link item styling (URL Shortener) */
 .navbar-links li:first-child {
-  margin-right: auto; /* Shoves branding far left, pushes others right */
+  margin-right: auto;
+  /* Shoves branding far left, pushes others right */
   font-size: 1.25rem;
   font-weight: 700;
   color: var(--everest-navy);
@@ -74,12 +76,15 @@ body {
    ========================================== */
 .form-wrapper {
   display: flex;
-  flex-direction: column; /* Vertically stacks multiple state cards cleanly */
+  flex-direction: column;
+  /* Vertically stacks multiple state cards cleanly */
   align-items: center;
   justify-content: center;
   padding: 60px 24px;
-  gap: 40px; /* Space between input card and success card if both are visible */
-  min-height: calc(100vh - 70px); /* Centers card dynamically on view screen */
+  gap: 40px;
+  /* Space between input card and success card if both are visible */
+  min-height: calc(100vh - 70px);
+  /* Centers card dynamically on view screen */
 }
 
 .shortener-card {
@@ -90,7 +95,7 @@ body {
   width: 100%;
   max-width: 600px;
   box-shadow: 0 4px 20px rgba(26, 42, 71, 0.04);
-  
+
   /* Flex direction layout stacks content internally */
   display: flex;
   flex-direction: column;
@@ -122,11 +127,25 @@ body {
   border-radius: 8px;
   outline: none;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  background-color: var(--white) !important;
+  color: var(--everest-navy) !important;
 }
 
 .url-input:focus {
   border-color: var(--accent-blue);
   box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.15);
+}
+
+/* 1. Force the placeholder text color to be readable across all browsers */
+.url-input::placeholder {
+  color: #94A3B8 !important; /* Clean slate-gray hint text color */
+  opacity: 1; /* Fixes Safari/Firefox opacity overrides */
+}
+
+/* 2. Style the text highlight color (so it never turns into that giant black box) */
+.url-input::selection {
+  background-color: rgba(0, 102, 204, 0.2); /* Soft accent blue highlight */
+  color: var(--everest-navy);
 }
 
 /* Read-only variant matching the success block state */
@@ -138,11 +157,12 @@ body {
 }
 
 /* Master styling for custom dashboard layout buttons */
-.submit-btn, .copy-btn {
+.submit-btn,
+.copy-btn {
   width: 100%;
   padding: 14px;
-  background-color: var(--everest-navy);
-  color: var(--white);
+  background-color: var(--everest-navy) !important; /* Forces all buttons to be deep navy */
+  color: #FFFFFF !important;
   border: none;
   border-radius: 8px;
   font-size: 1rem;
@@ -152,8 +172,14 @@ body {
   transition: background-color 0.2s ease;
 }
 
-.submit-btn:hover {
-  background-color: var(--accent-blue);
+.submit-btn:hover,
+.copy-btn:hover {
+  background-color: var(--accent-blue) !important;
+}
+
+.submit-btn:active,
+.copy-btn:active {
+  transform: scale(0.98);
 }
 
 /* ==========================================
@@ -208,7 +234,8 @@ body {
 }
 
 .copy-box .url-input {
-  flex: 1; /* Causes text box to fill space, shrinking the button down */
+  flex: 1;
+  /* Causes text box to fill space, shrinking the button down */
 }
 
 .copy-box .copy-btn {
