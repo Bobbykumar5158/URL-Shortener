@@ -1,5 +1,45 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Api docs</h1>
+<div class="api-container">
+    <h1>Documentation</h1>
+
+    <div class="card">
+        <h3>How to make an API call</h3>
+        <pre>POST /api/links</pre>
+
+        <h3>Example API JSON Response</h3>
+        <pre>{ "x7B9r2":{"url": "https://github.com",
+            "clicks": 3
+            }
+}
+        </pre>
+    </div>
+
+    <div class="card">
+        <h2>JSON format API response fields</h2>
+
+        <ul class="field-list">
+            <li>
+                <code>code</code>
+                <span class="field-description">The auto-generated unique 6-character URL identifier slug.</span>
+
+                <div class="nested-field">
+                    <ul class="field-list">
+                        <li>
+                            <code>code.url</code>
+                            <span class="field-description">String. The target long destination address website.</span>
+                        </li>
+                        <li>
+                            <code>code.clicks</code>
+                            <span class="field-description">Integer. The total click count interactions registered on
+                                this
+                                slug.</span>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
 {% endblock %}
