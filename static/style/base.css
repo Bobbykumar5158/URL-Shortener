@@ -138,13 +138,16 @@ body {
 
 /* 1. Force the placeholder text color to be readable across all browsers */
 .url-input::placeholder {
-  color: #94A3B8 !important; /* Clean slate-gray hint text color */
-  opacity: 1; /* Fixes Safari/Firefox opacity overrides */
+  color: #94A3B8 !important;
+  /* Clean slate-gray hint text color */
+  opacity: 1;
+  /* Fixes Safari/Firefox opacity overrides */
 }
 
 /* 2. Style the text highlight color (so it never turns into that giant black box) */
 .url-input::selection {
-  background-color: rgba(0, 102, 204, 0.2); /* Soft accent blue highlight */
+  background-color: rgba(0, 102, 204, 0.2);
+  /* Soft accent blue highlight */
   color: var(--everest-navy);
 }
 
@@ -161,7 +164,8 @@ body {
 .copy-btn {
   width: 100%;
   padding: 14px;
-  background-color: var(--everest-navy) !important; /* Forces all buttons to be deep navy */
+  background-color: var(--everest-navy) !important;
+  /* Forces all buttons to be deep navy */
   color: #FFFFFF !important;
   border: none;
   border-radius: 8px;
@@ -254,4 +258,266 @@ body {
   width: auto;
   padding: 6px 14px;
   font-size: 0.85rem;
+}
+
+/* ==========================================
+   DASHBOARD 
+   ========================================== */
+
+/* Wrapper to center and contain your dashboard table layout */
+.dashboard-container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.dashboard-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 20px;
+}
+
+/* Modernized Table Layout Override */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 24px 0;
+  font-size: 15px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+}
+
+/* Header Cells styling */
+th {
+  background-color: #0f172a;
+  color: #ffffff;
+  text-align: left;
+  font-weight: 600;
+  padding: 18px 24px;
+}
+
+/* Row Data formatting */
+td {
+  padding: 18px 24px;
+  border-bottom: 1px solid #e2e8f0;
+  vertical-align: middle;
+  color: #334155;
+}
+
+/* Zebra Tinting */
+tr:nth-child(even) {
+  background-color: #f8fafc;
+}
+
+tr:hover {
+  background-color: #f1f5f9;
+  transition: background-color 0.2s ease;
+}
+
+/* Short Code styling (Styled safely as an inline badge) */
+.code-badge {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 700;
+  color: #2563eb;
+  background-color: #eff6ff;
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid #bfdbfe;
+  display: inline-block;
+}
+
+/* Hyperlinks within the table */
+td a {
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 500;
+  word-break: break-all;
+}
+
+td a:hover {
+  color: #1d4ed8;
+  text-decoration: underline;
+}
+
+/* Target the Clicks Column to make it clean and bold */
+td:last-child {
+  font-weight: 700;
+  color: #475569;
+}
+
+/* ==========================================
+   404 ERROR PAGE STYLES
+   ========================================== */
+.error-container {
+  max-width: 600px;
+  margin: 80px auto;
+  text-align: center;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.error-graphic {
+  font-size: 72px;
+  margin-bottom: 10px;
+  animation: float 3s ease-in-out infinite;
+}
+
+.error-code {
+  font-size: 96px;
+  font-weight: 800;
+  color: #0f172a;
+  /* Deep slate */
+  margin: 0;
+  line-height: 1;
+}
+
+.error-message {
+  font-size: 24px;
+  font-weight: 600;
+  color: #334155;
+  margin: 10px 0 20px 0;
+}
+
+.error-description {
+  font-size: 16px;
+  color: #64748b;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+/* Styled Action Button */
+.back-btn {
+  display: inline-block;
+  background-color: var(--everest-navy);
+  color: #ffffff !important;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 12px 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.back-btn:hover {
+  background-color: #1d4ed8;
+  transform: translateY(-2px);
+}
+
+/* Subtle animation floating effect for the graphic */
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* ==========================================
+   API DOCUMENTATION LAYOUT
+   ========================================== */
+
+.api-container {
+  max-width: 800px;
+  margin: 40px auto;
+  /* Centers the container horizontally */
+  padding: 0 20px;
+  /* Prevents touching the screen edge on mobile */
+}
+
+/* Outer white content wrapper card */
+.card {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+  margin-bottom: 24px;
+  border: 1px solid #f0f0f0;
+  max-width: 800px;
+}
+
+/* Base Heading Configuration */
+h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 24px;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #475569;
+  margin: 20px 0 10px 0;
+}
+
+/* Light warm background tone for code/pre blocks */
+pre {
+  background: #fdfaf6;
+  padding: 18px;
+  border-radius: 8px;
+  overflow-x: auto;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 14.5px;
+  border: 1px solid #faebd7;
+  color: #4a3e3d;
+  margin: 12px 0 20px 0;
+}
+
+/* Inline Code Elements */
+code {
+  font-family: 'Courier New', Courier, monospace;
+  background: #f1f5f9;
+  color: #0f172a;
+  padding: 3px 6px;
+  border-radius: 4px;
+  font-size: 0.9em;
+  font-weight: 600;
+}
+
+/* Clear padding inside full code pre boxes */
+pre code {
+  padding: 0;
+  background: none;
+  font-weight: normal;
+}
+
+/* Structural parameters tree list */
+.field-list {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.field-list li {
+  margin-bottom: 16px;
+  padding-left: 16px;
+  border-left: 2px solid #e2e8f0;
+}
+
+.field-description {
+  color: #475569;
+  margin-left: 12px;
+  font-size: 15px;
+}
+
+/* Offsets the child nested lines cleanly */
+.nested-field {
+  margin-top: 12px;
+  padding-left: 20px;
 }
