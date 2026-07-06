@@ -14,7 +14,7 @@ def home():
     shortened_url = None
     
     if generated_code:
-        shortened_url = f"http://127.0.0.1:5000/s/{generated_code}"
+        shortened_url = request.host_url+f"s/{generated_code}"
         
     return render_template('home.html', code=generated_code, shortened_url=shortened_url)
 
@@ -67,4 +67,4 @@ def api_links():
     
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0",port=5000)
+    app.run(host="0.0.0.0",port=8080)
