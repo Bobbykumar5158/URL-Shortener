@@ -8,13 +8,6 @@ from db import read_data, write_data
 app = Flask(__name__)
 FILE = "data.json"
 
-'''
-
-# TODO
-shorten route for form info
-
-'''
-
 @app.route("/")
 def home():
     generated_code = request.args.get('code')
@@ -55,13 +48,13 @@ def orignalURL(code):
         write_data(FILE,data)
         return redirect(orignalURL)
     
-    return "<h1>URL Not Found (404)</h1>", 404
+    return render_template("error.html"), 404
     
-
 
 @app.route("/dashboard")
 def dashboard():
-    return render_template("dashboard.html")
+    json_data = read_data(FILE)
+    return render_template('dashboard.html', data=json_data)
 
 @app.route("/api")
 def api():
@@ -69,7 +62,9 @@ def api():
 
 @app.route("/api/links")
 def api_links():
-    return jsonify({"data":{"key":"val"}}) # only for example will modify after
+    data = read_data(FILE)
+    return jsonify(data), 200
+    
 
 if __name__ == "__main__":
     app.run(debug = True)
