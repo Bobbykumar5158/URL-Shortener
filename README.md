@@ -7,7 +7,7 @@ A modern Flask-based URL shortener web application that converts long URLs into 
 
 ## Live Demo
 
-[Visit Live Website](url-shortener-production-63e9.up.railway.app)
+[Visit Live Website](https://url-shortener-production-63e9.up.railway.app)
 
 ---
 
